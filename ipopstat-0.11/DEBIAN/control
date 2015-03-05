@@ -1,6 +1,6 @@
-Package: ipop-stat-0.1
+Package: ipop-stat
 Source: linux
-Version: 0.1
+Version: 0.11
 Architecture: amd64
 Maintainer: Kyuho Jeong <kyuho.jeong@gmail.com>
 Installed-Size: 41150
