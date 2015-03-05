@@ -96,7 +96,7 @@ Building Debian Packages
 Locate at the parent directory of ipop-stat then run below.
 
 ```
-dpkg-deb --build ipop-stat/ipopstat-0.1
+dpkg-deb --build ipop-stat/ipopstat-0.11
 ```
 
 
@@ -105,7 +105,7 @@ Install and Running ipopstat from Debian Package
 ------------------------------------------------
 
 ```
-sudo dpkg -i ipopstat-0.1
+sudo dpkg -i ipopstat-0.11.deb
 sudo apt-get update
 sudo apt-get -f install 
 ```
