@@ -65,7 +65,7 @@ Running server
 --------------
 ```
 sudo apt-get update
-sudo apt-get install git python-pip python-flask python-sqlalchemy sqlite3
+sudo apt-get install git python-pip python-flask python-sqlalchemy sqlite3 pyyaml
 git clone https://github.com/kyuhojeong/ipop-stats.git
 cd ipop-stats
 ./run.py
