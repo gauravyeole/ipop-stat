@@ -83,8 +83,7 @@ sqlite database file is located /var/lib/ipop-stat/ipop-stat.db
 
 Simple database query snippets below. 
 ```
-$sqlite3
-sqlite>.open /var/lib/ipop-stat/ipop-stat.db
+$sqlite3 /var/lib/ipop-stat/ipop-stat.db
 sqlite>select * from user;
 sqlite>select * from ping;
 ```
