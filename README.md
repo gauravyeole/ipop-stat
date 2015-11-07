@@ -69,9 +69,12 @@ sudo apt-get install git python-pip python-flask python-sqlalchemy sqlite3 pytho
 git clone https://github.com/ipop-project/ipop-stats.git
 cd ipop-stats/ipopstat-0.12/DEBIAN
 sudo bash preinst
+sudo passwd ipop
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
 su ipop
-git clone https://github.com/ipop-project/ipop-stats.git
-cd ipop-stats/ipopstat-0.12/usr/share/ipop-stat/
+cd ../usr/share/ipop-stat
 ./run.py
 ```
 
