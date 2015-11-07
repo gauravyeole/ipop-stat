@@ -61,13 +61,17 @@ module][nginx limit req].
 
 *Please don't be evil!*
 
-Running server
+Running server (without installing as an debian package)
 --------------
 ```
 sudo apt-get update
-sudo apt-get install git python-pip python-flask python-sqlalchemy sqlite3 pyyaml
+sudo apt-get install git python-pip python-flask python-sqlalchemy sqlite3 python-yaml
 git clone https://github.com/ipop-project/ipop-stats.git
-cd ipop-stats
+cd ipop-stats/ipopstat-0.12/DEBIAN
+sudo bash preinst
+su ipop
+git clone https://github.com/ipop-project/ipop-stats.git
+cd ipop-stats/ipopstat-0.12/usr/share/ipop-stat/
 ./run.py
 ```
 
