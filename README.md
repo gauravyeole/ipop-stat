@@ -74,6 +74,7 @@ Enter new UNIX password: ipop
 Retype new UNIX password: ipop
 passwd: password updated successfully
 su ipop
+Password:ipop
 cd ../usr/share/ipop-stat
 ./run.py
 ```
