@@ -70,8 +70,8 @@ git clone https://github.com/ipop-project/ipop-stats.git
 cd ipop-stats/ipopstat-0.12/DEBIAN
 sudo bash preinst
 sudo passwd ipop
-Enter new UNIX password: 
-Retype new UNIX password: 
+Enter new UNIX password: ipop
+Retype new UNIX password: ipop
 passwd: password updated successfully
 su ipop
 cd ../usr/share/ipop-stat
