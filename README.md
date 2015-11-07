@@ -81,11 +81,11 @@ cd ../usr/share/ipop-stat
 
 now you can access this server through webbrowser. 
 
-http://ip_address:5000/api
+http://ip_address:8080/api
 
 controller reports status info 
 
-http://ip_address:5000/api/submit
+http://ip_address:8080/api/submit
 
 sqlite database file is located /var/lib/ipop-stat/ipop-stat.db
 
