@@ -123,6 +123,10 @@ Release notes on version 0.12
 I added the portforwarding rule. Don't forget to remove it in postinst next version.
 Change the port number 5000 to 8080.
 
+Note for next time
+------------------------------------------------
+I need to stop the ipop-stat before update. 
+Add the command in preinst or something like "service ipop-stat stop"
 
 
 
