@@ -103,7 +103,7 @@ Building Debian Packages
 Locate at the parent directory of ipop-stat then run below.
 
 ```
-dpkg-deb --build ipop-stat/ipopstat-0.12
+dpkg-deb --build ipop-stat/ipopstat-0.13
 ```
 
 
@@ -112,16 +112,12 @@ Install and Running ipopstat from Debian Package
 ------------------------------------------------
 
 ```
-sudo dpkg -i ipopstat-0.12.deb
+sudo dpkg -i ipopstat-0.13.deb
 sudo apt-get update
 sudo apt-get -f install 
 ```
 
 
-Release notes on version 0.12
-------------------------------------------------
-I added the portforwarding rule. Don't forget to remove it in postinst next version.
-Change the port number 5000 to 8080.
 
 Note for next time
 ------------------------------------------------
