@@ -124,6 +124,10 @@ Note for next time
 I need to stop the ipop-stat before update. 
 Add the command in preinst or something like "service ipop-stat stop"
 
+Issues
+------------------------------------------------
+For some reason, "service ipop-stat start/stop" does not work. 
+
 
 
 
