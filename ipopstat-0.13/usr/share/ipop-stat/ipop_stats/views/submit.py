@@ -23,6 +23,7 @@ submit = Blueprint("submit", __name__, url_prefix="/api")
 
 @submit.route("/submit", methods=["POST"])
 def update():
+    print "got ping"
     time = datetime.datetime.now()
     ip = request.remote_addr              # TODO: How does this work under wsgi?
     ip = validate_ip(ip)
