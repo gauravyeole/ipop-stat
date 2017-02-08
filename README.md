@@ -103,7 +103,7 @@ Building Debian Packages
 Locate at the parent directory of ipop-stat then run below.
 
 ```
-dpkg-deb --build ipop-stat/ipopstat-0.13
+dpkg-deb --build ipopstat-0.14
 ```
 
 
