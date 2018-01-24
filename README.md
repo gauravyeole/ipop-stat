@@ -64,10 +64,14 @@ module][nginx limit req].
 Running server (without installing as an debian package)
 --------------
 ```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 sudo apt-get update
-sudo apt-get install git python-pip python-flask python-sqlalchemy sqlite3 python-yaml
+sudo apt-get install -y mongodb-org
+sudo apt-get install -y mongodb-org=3.6.0 mongodb-org-server=3.6.0 mongodb-org-shell=3.6.0 mongodb-org-mongos=3.6.0 mongodb-org-tools=3.6.0
+sudo apt-get install git python-pip python-flask pymongo python-yaml
 git clone https://github.com/ipop-project/ipop-stats.git
-cd ipop-stats/ipopstat-0.12/DEBIAN
+cd ipop-stats/ipopstat-0.15/DEBIAN
 sudo bash preinst
 sudo passwd ipop
 Enter new UNIX password: ipop
@@ -86,37 +90,6 @@ http://ip_address:8080/api
 controller reports status info 
 
 http://ip_address:8080/api/submit
-
-sqlite database file is located /var/lib/ipop-stat/ipop-stat.db
-
-Simple database query snippets below. 
-```
-$sqlite3 /var/lib/ipop-stat/ipop-stat.db
-sqlite>select * from user;
-sqlite>select * from ping;
-```
-
-Building Debian Packages
-------------------------
-
-
-Locate at the parent directory of ipop-stat then run below.
-
-```
-dpkg-deb --build ipopstat-0.14
-```
-
-
-
-Install and Running ipopstat from Debian Package
-------------------------------------------------
-
-```
-sudo dpkg -i ipopstat-0.14.deb
-sudo apt-get update
-sudo apt-get -f install 
-```
-
 
 
 Note for next time
