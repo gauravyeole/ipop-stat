@@ -96,11 +96,12 @@ database location:
 /var/lib/mongodb/
 
 you can query database using Mongo shell as:
+```
 $ mongo
 > use usage_report
 > db.user.find()          // to get the data in database
 > db.user.count()         // to get number of documents in collection
-
+```
 
 Note for next time
 ------------------------------------------------
