@@ -68,7 +68,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF50
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 sudo apt-get update
 sudo apt-get install -y mongodb-org
-sudo apt-get install -y mongodb-org=3.6.0 mongodb-org-server=3.6.0 mongodb-org-shell=3.6.0 mongodb-org-mongos=3.6.0 mongodb-org-tools=3.6.0
+python -m pip install pymongo
 sudo apt-get install git python-pip python-flask pymongo python-yaml
 git clone https://github.com/ipop-project/ipop-stats.git
 cd ipop-stats/ipopstat-0.15/DEBIAN
@@ -77,6 +77,7 @@ sudo passwd ipop
 Enter new UNIX password: ipop
 Retype new UNIX password: ipop
 passwd: password updated successfully
+sudo service mongod start
 su ipop
 Password:ipop
 cd ../usr/share/ipop-stat
