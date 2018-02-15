@@ -1,16 +1,18 @@
-#!/usr/bin/env python
+#!/usr/bin/env
 
 import datetime
 import json
 import hashlib
-import urllib2
+import urllib.request as urllib2
+import urllib.parse
 
-data = json.dumps({
-  "xmpp_host" : hashlib.sha1("127.0.0.1").hexdigest(),
-  "uid": hashlib.sha1("abcd").hexdigest(),
-  "xmpp_username":hashlib.sha1("username").hexdigest(), 
+report_data = {
+  "xmpp_host": hashlib.sha1("127.0.0.1".encode("utf-8")).hexdigest(),
+  "xmpp_username": hashlib.sha1("xmpp_username".encode("utf-8")).hexdigest(),
   "time": str(datetime.datetime.now()), "controller": "test_client", 
-  "version": 3})
+  "version": 3}
+
+data = json.dumps(report_data).encode('utf8')
 
 try:
   url="http://" + "127.0.0.1" + ":" +str(8080) + "/api/submit"
@@ -22,6 +24,6 @@ try:
     res.read()))
   if res.getcode() != 200:
     raise
-except:
-  print("Status report failed.")
+except Exception as error:
+  print("Status report failed. Error is {0}".format(error))
 
