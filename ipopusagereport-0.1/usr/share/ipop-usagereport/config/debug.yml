@@ -18,7 +18,7 @@ logging:
         file:
              class : logging.handlers.RotatingFileHandler
              formatter: default
-             filename: /var/log/ipop-stat.log
+             filename: /var/log/ipop-usagereport.log
              maxBytes: 9999999
              backupCount: 9
     formatters:
