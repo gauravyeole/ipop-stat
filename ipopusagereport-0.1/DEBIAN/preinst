@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 touch /var/log/ipop-usagereport.log
-useradd -d /var/lib/ipop-usagereport ipop 
-chown --quiet ipop:ipop /var/log/ipop-usagereport.log
+useradd -d /var/lib/ipop-usagereport ipopreport 
+chown --quiet ipopreport:ipopreport /var/log/ipop-usagereport.log

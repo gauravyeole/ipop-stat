@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-service ipop-usagereport start
 update-rc.d ipop-usagereport defaults
+service ipop-usagereport start
+
