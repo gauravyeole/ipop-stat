@@ -1,0 +1,9 @@
+Package: ipop-usagereport
+Source: linux
+Version: 0.1
+Architecture: amd64
+Maintainer: Gaurav Yeole <gauravyeole@ufl.edu>
+Installed-Size: 41150
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: python-pip, python-flask, python-yaml, python-tornado
+Description: IPOP Usage Report Server

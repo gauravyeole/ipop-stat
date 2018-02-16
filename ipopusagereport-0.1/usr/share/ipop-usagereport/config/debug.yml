@@ -1,0 +1,36 @@
+# http://flask.pocoo.org/docs/config/
+database_name: "usage_report"
+database_uri: "mongodb://localhost:27017"
+new_database: False
+flask:
+    debug: true
+    testing: true
+# http://docs.python.org/2/library/logging.config.html#logging-config-dictschema
+logging:
+    version: 1
+    root:
+        level: DEBUG
+    handlers:
+        console:
+            class: logging.StreamHandler
+            stream: ext://sys.stdout
+            formatter: default
+        file:
+             class : logging.handlers.RotatingFileHandler
+             formatter: default
+             filename: /var/log/ipop-stat.log
+             maxBytes: 9999999
+             backupCount: 9
+    formatters:
+        default:
+            format: '%(asctime)s %(levelname)-8s %(name)-15s %(message)s'
+            datefmt: '%Y-%m-%d %H:%M:%S'
+    loggers: 
+        all: 
+            level: DEBUG
+            handlers: [console, file]
+ratelimit:
+    burst: 10 # allow a burst "pool"
+    uuid: 60 # seconds
+    ipv4: 60 # seconds
+    ipv6: 60 # seconds
