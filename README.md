@@ -64,53 +64,99 @@ module][nginx limit req].
 Running server (without installing as an debian package)
 --------------
 ```
+# install MongoDB and Pymongo client
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 python -m pip install pymongo
+
 sudo apt-get install git python-pip python-flask pymongo python-yaml
 git clone https://github.com/ipop-project/ipop-stats.git
-cd ipop-stats/ipopstat-0.15/DEBIAN
+cd ipop-stats/ipopusagereport-0.1/DEBIAN
 sudo bash preinst
-sudo passwd ipop
+sudo passwd ipopreport
 Enter new UNIX password: ipop
 Retype new UNIX password: ipop
 passwd: password updated successfully
 sudo service mongod start
-su ipop
+su ipopreport
 Password:ipop
-cd ../usr/share/ipop-stat
+cd ../usr/share/ipop-usagereport
 ./run.py
 ```
 
 now you can access this server through webbrowser. 
 
-http://ip_address:8080/api
+http://ip_address:8081/api
 
 controller reports status info 
 
-http://ip_address:8080/api/submit
+http://ip_address:8081/api/submit
+
 
 database location:
+```
 /var/lib/mongodb/
+```
 
 you can query database using Mongo shell as:
 ```
 $ mongo
 > use usage_report
-> db.user.find()          // to get the data in database
-> db.user.count()         // to get number of documents in collection
+> db.user.find()          # to get the data in database
+> db.user.count()         # to get number of documents in collection
 ```
 
-Note for next time
-------------------------------------------------
-I need to stop the ipop-stat before update. 
-Add the command in preinst or something like "service ipop-stat stop"
+Reset Database:
+```
+$ mongo
+> show dbs
+> use usage_report
+> db.dropDatabase()
+```
 
-Issues
+Building Debian Package
 ------------------------------------------------
-For some reason, "service ipop-stat start/stop" does not work. 
+locate at the parent directory of ipopusagereport-0.1
+```
+$ cd ipopusagereport-0.1
+$ dpkg-deb --build ipopusagereport-0.1
+```
+
+Installation and Runnnig ipopusagereport debian package
+------------------------------------------------
+```
+sudo dpkg -i ipopusagereport-0.1.deb
+sudo apt-get update
+sudo apt-get -f install
+```
+
+Start, Stop, Restart ipopusagereport service
+------------------------------------------------
+Start service: (make sure mongodb server is running before starting ipopusagereport)
+```
+$ service mongod start 
+$ service ipop-usagereport start
+
+```
+
+Stop service:
+```
+$ service ipop-usagereport stop
+```
+
+Restart Service:
+```
+$ service ipop-usagereport restart
+```
+
+Check status:
+```
+$ service ipop-usagereport status
+```
+
+
 
 
 
